@@ -35,23 +35,16 @@ public class Main {
 
 
 
-    public static int calculateDeliveryDays(int distance) {
-        int deliveryDays = 0;
-        if (distance < 20) {
-            deliveryDays = +1;
-        } else if (distance >= 20 && distance <= 60) {
-            deliveryDays = 1 + 1;
-        } else if (distance > 60 && distance <= 100) {
-            deliveryDays = 1 + 1 + 1;
-        } else if (distance > 100) {
-            deliveryDays = 0;
-        }
-        if (deliveryDays == 0) {
-            System.out.println("Доставки нет");
+    public static int calculateDelivery(int distance) {
+        if(distance <= 20) {
+            return 1;
+        } else if(distance <= 60) {
+            return 2;
+        } else if(distance <= 100) {
+            return 3;
         } else {
-            System.out.println("Потребуется дней: " + deliveryDays);
+            return 0;
         }
-        return deliveryDays;
     }
 
 
@@ -77,6 +70,6 @@ public class Main {
 
         System.out.println("Задание 3");
         int deliveryDistance = 95;
-        int deliveryDays = calculateDeliveryDays(deliveryDistance);
+        System.out.println("Потребуется дней: " + calculateDelivery(deliveryDistance));
     }
 }
